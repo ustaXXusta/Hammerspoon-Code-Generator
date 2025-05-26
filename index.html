@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hammerspoon Code Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" type="image/x-icon" href="hammerspoon.png" />
+</head>
+<body>
+  <main class="main">
+    <div class="tab-buttons">
+      <button class="b b1"></button>
+      <button class="b b2"></button>
+      <button class="b b3">
+      </button>
+    </div>
+ 
+    <section class="side left">
+      <div class="logo">
+        <img src="hammerspoon.png" alt="Hammerspoon Logo" />
+        <h1>Hammerspoon<br />Code Generator</h1>
+      </div>
+      <hr />
+      <div class="leftdown">
+        <p id="answer" style="margin-top: 3vh; margin-bottom: 3vh;">Please Generate a Code</p>
+        <button id="copier" onclick="copyContent()"style="margin-right: 3vh; margin-left: 3vh;">Copy Code!</button>
+        <button onclick="refresh()">Refresh</button>
+        <h2>Your Code</h2>
+        <div class="code-keeper" style="margin-top: 3vh; margin-bottom: 3vh;">
+          <p id="mainCode">
+            hs.hotkey.bind({'<span id="actKey">default</span>'}, '<span id="secKey">default</span>', function()<br />
+            hs.eventtap.keyStrokes("<span id="resKey">default</span>")<br />
+            end)
+          </p>
+        </div>
+        <a href="https://github.com/Hammerspoon/hammerspoon">Hammerspoon on Github</a>
+        <a href="https://github.com/ustaXXusta">My Github</a>
+      </div>
+    </section>
+    <section class="side right">
+      <div class="key-keeper action-key">
+        <div class="text-k"><h2>Choose Action Key</h2></div>
+        <div class="s-k">
+          <select id="actSelect">
+            <option value="Choose" disabled selected>Choose</option>
+            <option value="leftshift">Left Shift</option>
+            <option value="rightshift">Right Shift</option>
+            <option value="ctrl">Ctrl</option>
+            <option value="rightctrl">Right Ctrl</option>
+            <option value="alt">Alt</option>
+            <option value="rightalt">Right Alt</option>
+            <option value="option">Option</option>
+            <option value="rightoption">Right Option</option>
+            <option value="cmd">Command</option>
+            <option value="rightcmd">Right Command</option>
+          </select>
+        </div>
+      </div>
+      <div class="key-keeper board-key">
+        <div class="text-k"><h2>Choose Secondary Key</h2></div>
+        <div class="s-k">
+          <select id="secSelect">
+            <option value="Choose" disabled selected>Choose</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="e">E</option>
+            <option value="f">F</option>
+            <option value="g">G</option>
+            <option value="h">H</option>
+            <option value="i">I</option>
+            <option value="j">J</option>
+            <option value="k">K</option>
+            <option value="l">L</option>
+            <option value="m">M</option>
+            <option value="n">N</option>
+            <option value="o">O</option>
+            <option value="p">P</option>
+            <option value="q">Q</option>
+            <option value="r">R</option>
+            <option value="s">S</option>
+            <option value="t">T</option>
+            <option value="u">U</option>
+            <option value="v">V</option>
+            <option value="w">W</option>
+            <option value="x">X</option>
+            <option value="y">Y</option>
+            <option value="z">Z</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value=",">,</option>
+            <option value=".">.</option>
+          </select>
+        </div>
+      </div>
+      <div class="key-keeper result-key">
+        <div class="text-k"><h2>Choose Result Key</h2></div>
+        <div class="s-k">
+          <select id="resSelect">
+            <option value="Choose" disabled selected>Choose</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="e">E</option>
+            <option value="f">F</option>
+            <option value="g">G</option>
+            <option value="h">H</option>
+            <option value="i">I</option>
+            <option value="j">J</option>
+            <option value="k">K</option>
+            <option value="l">L</option>
+            <option value="m">M</option>
+            <option value="n">N</option>
+            <option value="o">O</option>
+            <option value="p">P</option>
+            <option value="q">Q</option>
+            <option value="r">R</option>
+            <option value="s">S</option>
+            <option value="t">T</option>
+            <option value="u">U</option>
+            <option value="v">V</option>
+            <option value="w">W</option>
+            <option value="x">X</option>
+            <option value="y">Y</option>
+            <option value="z">Z</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="`">`</option>
+            <option value="~">~</option>
+            <option value="!">!</option>
+            <option value="@">@</option>
+            <option value="#">#</option>
+            <option value="$">$</option>
+            <option value="%">%</option>
+            <option value="^">^</option>
+            <option value="&">&</option>
+            <option value="*">*</option>
+            <option value="(">(</option>
+            <option value=")">)</option>
+            <option value="_">_</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="[">[</option>
+            <option value="]">]</option>
+            <option value="{">{</option>
+            <option value="}">}</option>
+            <option value="|">|</option>
+            <option value="\">\\</option>
+            <option value=";">;</option>
+            <option value=":">:</option>
+            <option value="'">'</option>
+            <option value='"'>"</option>
+            <option value=",">,</option>
+            <option value=".">.</option>
+            <option value="?">?</option>
+            <option value="/">/</option>
+          </select>
+        </div>
+      </div>
+      <button id="generate">Generate</button>
+      <p class="note">If you are a MacOS user with an external keyboard (non-Mac, e.g., using Alt instead of Cmd), here are my modifier key settings to make Hammerspoon more adaptable:</p>
+      <ul style="margin-bottom: 1.5vh;">
+        <li>Control: Control</li>
+        <li>Option: Command</li>
+        <li>Command: Option</li>
+      </ul>
+      <div class="alert-buttons">
+        <button onclick="alerty()" class="alert">Alert 1</button>
+        <button onclick="alertyy()" class="alert">Alert 2</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
