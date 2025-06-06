@@ -1,5 +1,5 @@
 # Hammerspoon Code Generator
-
+https://ustaxxusta.github.io/Hammerspoon-Code-Generator/
 This project is a utility for generating Hammerspoon configuration scripts automatically. It helps macOS users customize and automate window management, hotkeys, and other system behaviors through generated Lua code tailored to their preferences.
 
 ## Features
